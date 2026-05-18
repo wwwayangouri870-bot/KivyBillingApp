@@ -5,12 +5,16 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install dependency
+        run: |
+          sudo apt update
+          sudo apt install -y libncurses5
 
       - name: Build APK
         uses: ArtemSBulgakov/buildozer-action@v1
