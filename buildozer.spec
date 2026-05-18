@@ -20,6 +20,7 @@ android.permissions = INTERNET
 android.api = 35
 android.minapi = 23
 android.ndk = 25b
+android.build_tools_version = 35.0.0
 
 log_level = 2
 warn_on_root = 1
