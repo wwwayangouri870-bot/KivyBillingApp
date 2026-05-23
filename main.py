@@ -1,23 +1,8 @@
-name: APK Build
+from kivy.app import App
+from kivy.uix.label import Label
 
-on:
-  workflow_dispatch:
+class MyApp(App):
+    def build(self):
+        return Label(text="Hello Ayan")
 
-jobs:
-  build:
-    runs-on: ubuntu-22.04
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Build APK
-        uses: digreatbrian/buildozer-action@v2
-        with:
-          buildozer-cmd: buildozer android debug
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: apk
-          path: bin/*.apk
+MyApp().run()
